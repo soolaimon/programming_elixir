@@ -38,4 +38,22 @@ defmodule MyList do
     # _split([2,3,4,5], [1, []] , 2)
     # _split([3,4,5], [3 | 1,[]], 1)
   end
+
+  def take(list, n), do: hd(split(list, n))
+
+
+  def flatten(list), do: _flatten(list,  [])
+
+  defp _flatten([h|t], tail) when is_list(h) do
+    _flatten(h, _flatten(t, tail))
+  end
+
+  defp _flatten([h|t], tail) do
+    [ h | _flatten(t, tail) ]
+  end
+
+  defp _flatten([], tail) do
+    tail
+  end
+
 end
