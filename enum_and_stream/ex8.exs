@@ -20,5 +20,5 @@ defmodule Tax do
     tax = rate * net
     total = net + tax
     Keyword.put(order, :total_amount, total)
-    end
+  end
 end
